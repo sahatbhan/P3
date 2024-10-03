@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/form-style.css">
+
+        <script>
+            function validateForm() {
+                var x =document.forms["login-form"]["username"].value;
+                if (x==null || x==''){
+                    alert ("Name must be filled out");
+                    return false;
+                }
+            }
+        </script>
+</head>
+<body>
+    <div>
+        <form name="login-form" action="/login" onsubit="return validateForm()" target="__self" mesthod="POST">
+            <h2> Login: </h2>
+            {% if error if %}
+            <p>{{error}}</p>
+            {% end if %}
+            <input type="text" name="username" placeholder="username"><br>
+            <input type="password" name="password" placeholder="Password"><br>
+            <input type="submit" values="Submit"><br>
+        </form>
+    </div>
+</body>
+</html>
